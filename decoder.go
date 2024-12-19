@@ -9,16 +9,9 @@ import (
 	"unsafe"
 )
 
-/*
-#cgo pkg-config: opus
-#include <opus.h>
-
-int
-bridge_decoder_get_last_packet_duration(OpusDecoder *st, opus_int32 *samples)
-{
-	return opus_decoder_ctl(st, OPUS_GET_LAST_PACKET_DURATION(samples));
-}
-*/
+// #cgo CFLAGS: -I${SRCDIR}/build/include/opus
+// #include <opus.h>
+// #include "opus_decoder.h"
 import "C"
 
 var errDecUninitialized = fmt.Errorf("opus decoder uninitialized")

@@ -9,7 +9,7 @@ import (
 )
 
 /*
-#cgo pkg-config: opus
+// #cgo CXXFLAGS: -I${SRCDIR}/build/include
 #include <opus.h>
 */
 import "C"

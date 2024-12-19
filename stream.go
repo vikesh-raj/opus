@@ -2,6 +2,7 @@
 //
 // License for use of this code is detailed in the LICENSE file
 
+//go:build !nolibopusfile
 // +build !nolibopusfile
 
 package opus
@@ -12,15 +13,13 @@ import (
 	"unsafe"
 )
 
-/*
-#cgo pkg-config: opusfile
-#include <opusfile.h>
-#include <stdint.h>
-#include <string.h>
-
-OggOpusFile *my_open_callbacks(uintptr_t p, int *error);
-
-*/
+// #cgo CFLAGS: -I${SRCDIR}/build/include
+// #cgo LDFLAGS: ${SRCDIR}/build/lib/libopusfile.a
+// #cgo LDFLAGS: ${SRCDIR}/build/lib/libogg.a
+// #include <opusfile.h>
+// #include <stdint.h>
+// #include <string.h>
+// #include "callbacks.h"
 import "C"
 
 // Stream wraps a io.Reader in a decoding layer. It provides an API similar to

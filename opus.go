@@ -4,11 +4,9 @@
 
 package opus
 
-/*
-// Link opus using pkg-config.
-#cgo pkg-config: opus
-#include <opus.h>
-*/
+// #cgo CXXFLAGS: -I${SRCDIR}/build/include
+// #cgo LDFLAGS: ${SRCDIR}/build/lib/libopus.a
+// #include <opus.h>
 import "C"
 
 type Application int

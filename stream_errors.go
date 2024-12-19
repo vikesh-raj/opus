@@ -2,12 +2,13 @@
 //
 // License for use of this code is detailed in the LICENSE file
 
+//go:build !nolibopusfile
 // +build !nolibopusfile
 
 package opus
 
 /*
-#cgo pkg-config: opusfile
+// #cgo CXXFLAGS: -I${SRCDIR}/build/include
 #include <opusfile.h>
 */
 import "C"
